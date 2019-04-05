@@ -4,6 +4,9 @@ from random import randint
 
 import pytest
 
+pytest_plugins = "pytester"
+# from src import pytest_xray
+
 logging.basicConfig(level=logging.INFO)
 
 
