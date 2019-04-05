@@ -1,9 +1,10 @@
+from os import environ
+
 import pytest
 
-import pytest_xray as xray
-from pytest_xray import XrayTestReport, PublishXrayResults
-from pytest_xray.constants import XRAY_PLUGIN, XRAY_API_BASE_URL
-from os import environ
+from .constants import XRAY_API_BASE_URL, XRAY_PLUGIN
+from .models import XrayTestReport
+from .utils import PublishXrayResults, associate_marker_metadata_for, get_test_key_for
 
 JIRA_XRAY_FLAG = "--jira-xray"
 
@@ -33,7 +34,7 @@ def pytest_collection_modifyitems(config, items):
         return
 
     for item in items:
-        xray.associate_marker_metadata_for(item)
+        associate_marker_metadata_for(item)
 
 
 def pytest_terminal_summary(terminalreporter):
@@ -42,13 +43,13 @@ def pytest_terminal_summary(terminalreporter):
 
     test_reports = []
     for each in terminalreporter.stats["passed"]:
-        test_key, test_exec_key = xray.get_test_key_for(each)
+        test_key, test_exec_key = get_test_key_for(each)
         if test_key:
             report = XrayTestReport.as_passed(test_key, test_exec_key, each.duration)
             test_reports.append(report)
 
     for each in terminalreporter.stats["failed"]:
-        test_key, test_exec_key = xray.get_test_key_for(each)
+        test_key, test_exec_key = get_test_key_for(each)
         if test_key:
             report = XrayTestReport.as_failed(
                 test_key, test_exec_key, each.duration, each.longreprtext
