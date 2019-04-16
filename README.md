@@ -3,7 +3,7 @@ Plugin installation
 
 To install this library for use please enter the following command:
 
-    pip install https://github.com/nevtum/pytest_xray.git@<version nr>
+    $ pip install https://github.com/nevtum/pytest_xray.git@<version nr>
 
 where <release_nr> is replaced with the tagged release version of choice.
 
@@ -18,7 +18,11 @@ To take advantage of the pytest xray plugin, use markers from pytest to associat
     def test_my_function():
         assert True == True
 
-Environment variables **XRAY_API_CLIENT_ID** and **XRAY_API_CLIENT_SECRET** must be set for for pytest_xray to sucessfully post results to the Xray API.
+Enable the plugin by passing the extra options to the command line when invoking the pytest runner:
+
+    $ pytest . --jira-xray
+
+It is important that the environment variables **XRAY_API_CLIENT_ID** and **XRAY_API_CLIENT_SECRET** are set for pytest_xray to sucessfully post results to the Xray API.
 
 Maintenance notes
 ====
@@ -32,16 +36,16 @@ Patch versions are increased for any bug fixes and non-breaking changes.
 
 To automatically bump versions, best to install bump2version, then enter either of the following on the command line:
 
-    bump2version major
+    $ bump2version major
 
 or
 
-    bump2version minor
+    $ bump2version minor
 
 or
 
-    bump2version patch
+    $ bump2version patch
 
 These commands automatically commits and tags a new version. Make sure to push tags to the server with 
 
-    git push && git push --tags
+    $ git push && git push --tags
