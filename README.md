@@ -3,7 +3,7 @@ Plugin installation
 
 To install this library for use please enter the following command:
 
-    $ pip install https://github.com/nevtum/pytest_xray.git@<version nr>
+    $ pip install https://github.com/Isentia/pytest_xray.git@<version nr>
 
 where <release_nr> is replaced with the tagged release version of choice.
 
