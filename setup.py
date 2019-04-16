@@ -6,12 +6,18 @@ def long_description():
         return f.read()
 
 
+def pkg_install_requires():
+    with open("requirements.txt") as f:
+        results = f.read()
+        return results.split("\n")
+
+
 setup(
     name="myproject",
     version="0.1.2",
     long_description=long_description(),
     packages=find_packages(exclude=("tests",)),
-    install_requires=["pytest"],
+    install_requires=pkg_install_requires(),
     summary="py.test Xray integration plugin, using markers",
     entry_points={"pytest11": ["pytest_xray = src.pytest_xray"]},
 )
