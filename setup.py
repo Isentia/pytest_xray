@@ -8,7 +8,7 @@ def long_description():
 
 setup(
     name="myproject",
-    version="0.1",
+    version="0.1.1",
     long_description=long_description(),
     packages=["myproject"],
     install_requires=["pytest"],
