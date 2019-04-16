@@ -42,19 +42,21 @@ def pytest_terminal_summary(terminalreporter):
         return
 
     test_reports = []
-    for each in terminalreporter.stats["passed"]:
-        test_key, test_exec_key = get_test_key_for(each)
-        if test_key:
-            report = XrayTestReport.as_passed(test_key, test_exec_key, each.duration)
-            test_reports.append(report)
+    if "passed" in terminalreporter.stats:
+        for each in terminalreporter.stats["passed"]:
+            test_key, test_exec_key = get_test_key_for(each)
+            if test_key:
+                report = XrayTestReport.as_passed(test_key, test_exec_key, each.duration)
+                test_reports.append(report)
 
-    for each in terminalreporter.stats["failed"]:
-        test_key, test_exec_key = get_test_key_for(each)
-        if test_key:
-            report = XrayTestReport.as_failed(
-                test_key, test_exec_key, each.duration, each.longreprtext
-            )
-            test_reports.append(report)
+    if "failed" in terminalreporter.stats:
+        for each in terminalreporter.stats["failed"]:
+            test_key, test_exec_key = get_test_key_for(each)
+            if test_key:
+                report = XrayTestReport.as_failed(
+                    test_key, test_exec_key, each.duration, each.longreprtext
+                )
+                test_reports.append(report)
 
     publish_results = terminalreporter.config.pluginmanager.get_plugin(XRAY_PLUGIN)
 
