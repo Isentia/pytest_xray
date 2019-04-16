@@ -1,7 +1,7 @@
 pytest_plugins = "pytester"  # to get testdir fixture
 
 
-def test_myplugin(testdir):
+def test_myplugin_wip(testdir):
     test_example_1 = """
     from random import randint
 

@@ -19,6 +19,6 @@ setup(
     packages=find_packages(exclude=("tests",)),
     install_requires=pkg_install_requires(),
     summary="py.test Xray integration plugin, using markers",
-    entry_points={"pytest11": ["pytest_xray = src.pytest_xray"]},
+    entry_points={"pytest11": ["pytest_xray = pytest_xray.plugin"]},
 )
 
