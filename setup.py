@@ -14,7 +14,7 @@ def pkg_install_requires():
 
 setup(
     name="myproject",
-    version="0.1.2",
+    version="0.1.3",
     long_description=long_description(),
     packages=find_packages(exclude=("tests",)),
     install_requires=pkg_install_requires(),
