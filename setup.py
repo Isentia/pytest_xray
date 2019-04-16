@@ -14,7 +14,7 @@ def pkg_install_requires():
 
 setup(
     name="pytest_xray",
-    version="0.1.4",
+    version="0.1.5",
     long_description=long_description(),
     packages=find_packages(exclude=("tests",)),
     install_requires=pkg_install_requires(),
