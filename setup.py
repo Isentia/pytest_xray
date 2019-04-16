@@ -14,10 +14,13 @@ def pkg_install_requires():
 
 setup(
     name="pytest_xray",
+    author="Neville Tummon",
+    author_email="nt.devs@gmail.com",
     version="0.1.6",
     python_requires=">=3.6.6",
     long_description=long_description(),
     packages=find_packages(exclude=("tests",)),
+    download_url="https://github.com/Isentia/pytest_xray/archive/v0.1.6.tar.gz",
     install_requires=pkg_install_requires(),
     summary="py.test Xray integration plugin, using markers",
     entry_points={"pytest11": ["pytest_xray = pytest_xray.plugin"]},
