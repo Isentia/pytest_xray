@@ -13,7 +13,7 @@ def pkg_install_requires():
 
 
 setup(
-    name="myproject",
+    name="pytest_xray",
     version="0.1.3",
     long_description=long_description(),
     packages=find_packages(exclude=("tests",)),
