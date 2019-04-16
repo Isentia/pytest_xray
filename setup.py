@@ -1,13 +1,18 @@
 from setuptools import setup, find_packages
+import os
+
+XRAY_SETUP_DIR = os.path.abspath(os.path.dirname(__file__))
 
 
 def long_description():
-    with open("README.md") as f:
+    filepath = os.path.join(XRAY_SETUP_DIR, "README.md")
+    with open(filepath) as f:
         return f.read()
 
 
 def pkg_install_requires():
-    with open("requirements.txt") as f:
+    filepath = os.path.join(XRAY_SETUP_DIR, "requirements.txt")
+    with open(filepath) as f:
         results = f.read()
         return results.split("\n")
 
