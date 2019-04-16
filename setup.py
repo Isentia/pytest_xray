@@ -10,13 +10,6 @@ def long_description():
         return f.read()
 
 
-# def pkg_install_requires():
-#     filepath = os.path.join(XRAY_SETUP_DIR, "requirements.txt")
-#     with open(filepath) as f:
-#         results = f.read()
-#         return results.split("\n")
-
-
 PKG_INSTALL_REQS = ["pytest==4.3.1", "requests==2.21.0"]
 
 
