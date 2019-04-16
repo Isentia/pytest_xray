@@ -10,11 +10,14 @@ def long_description():
         return f.read()
 
 
-def pkg_install_requires():
-    filepath = os.path.join(XRAY_SETUP_DIR, "requirements.txt")
-    with open(filepath) as f:
-        results = f.read()
-        return results.split("\n")
+# def pkg_install_requires():
+#     filepath = os.path.join(XRAY_SETUP_DIR, "requirements.txt")
+#     with open(filepath) as f:
+#         results = f.read()
+#         return results.split("\n")
+
+
+PKG_INSTALL_REQS = ["pytest==4.3.1", "requests==2.21.0"]
 
 
 setup(
@@ -26,7 +29,7 @@ setup(
     long_description=long_description(),
     packages=find_packages(exclude=("tests",)),
     download_url="https://github.com/Isentia/pytest_xray/archive/v0.1.7.tar.gz",
-    install_requires=pkg_install_requires(),
+    install_requires=PKG_INSTALL_REQS,
     summary="py.test Xray integration plugin, using markers",
     entry_points={"pytest11": ["pytest_xray = pytest_xray.plugin"]},
     classifiers=[
