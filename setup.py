@@ -20,7 +20,7 @@ setup(
     version="0.2.1",
     python_requires=">=3.6.6",
     long_description=long_description(),
-    long_description_content_type='text/markdown'
+    long_description_content_type="text/markdown",
     packages=find_packages(exclude=("tests",)),
     download_url="https://github.com/Isentia/pytest_xray/archive/v0.2.1.tar.gz",
     install_requires=PKG_INSTALL_REQS,
