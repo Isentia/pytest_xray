@@ -88,7 +88,7 @@ class PublishXrayResults:
                 "summary": "Execution of automated tests",
                 "description": "",
                 "version": "",
-                "testEnvironments": ["UAT"],
+                "testEnvironments": [],
             },
             "tests": [],
         }
