@@ -10,7 +10,7 @@ def long_description():
         return f.read()
 
 
-PKG_INSTALL_REQS = ["pytest==4.3.1", "requests==2.21.0"]
+PKG_INSTALL_REQS = ["pytest >= 4.3.1", "requests==2.21.0"]
 
 
 setup(
